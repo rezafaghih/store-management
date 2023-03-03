@@ -1,0 +1,36 @@
+.real-box-container{
+  position: relative;
+  width: 100%;
+  min-height: max-content;
+  margin-top: 40px;
+  gap: 30px;
+}
+
+
+.real-box-container>.box{
+  position: relative;
+  width: 300px;
+  height: 400px;
+  border-radius: 8px;
+  background-color: var(--container);
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  gap: 20px;
+}
+
+.real-box-container>.box img{
+  width: 100%;
+  max-height: 50%;
+  object-fit: cover;
+}
+.real-box-container>.box .top-text span{
+  padding: 0px 10px;
+}
+
+.two-text-box{
+  position: relative;
+  width: 100%;
+  height: max-content;
+  justify-content: space-around;
+}
+
