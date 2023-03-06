@@ -34,6 +34,12 @@
   justify-content: space-around;
 }
 
+.two-text-box:nth-child(5){
+  width: 90%;
+  justify-content: end;
+  gap: 30px;
+}
+
 #upload-new-product{
   position  : fixed;
   padding: 10px 30px;
@@ -105,4 +111,11 @@
 
 #cover-label svg {
   color:white;
+}
+
+.two-text-box svg{
+  width: 30px;
+  color:rgb(41, 40, 40);
+  background-color: rgb(161, 160, 160);
+  border-radius: 7px;
 }

@@ -103,7 +103,12 @@ body{
   border-radius: 7px;
   font-family: font;
   font-weight: 100;
+  transition: 500ms;
   border: 1px solid rgba(0, 0, 0, 0.315);
+}
+
+.input-container input:focus{
+  width: 70%;
 }
 
 @font-face {
