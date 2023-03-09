@@ -52,7 +52,8 @@
 
 
     <div class="hidden-container flex-row center" style="display:none;">
-      <div class="content-container flex-col center" style="gap:30px; justify-content: start;">
+    <form action="src/php/upload-new-product.php" method="POST" enctype="multipart/form-data">
+    <div class="content-container flex-col center" style="gap:30px; justify-content: start;">
         <div class="top-text flex-row center">
           <h1 class = "text-sm text-main-color">اضافه کردن محصول</h1>
         </div>
@@ -60,7 +61,7 @@
           <label for="">
             نام محصول
           </label>
-          <input type="text" name="" id="" placeholder="نام محصول را وارد کنید">
+          <input type="text" name="product-name" id="" placeholder="نام محصول را وارد کنید">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
           </svg>
@@ -70,7 +71,7 @@
           <label for="">
             تعداد محصول در انبار
           </label>
-          <input type="text" name="" id="" placeholder="تعداد را وارد کنید">
+          <input type="text" name="count-of-product" id="" placeholder="تعداد را وارد کنید">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
           </svg>
@@ -80,7 +81,7 @@
           <label for="">
             قیمت محصول
           </label>
-          <input type="text" name="" id="" placeholder="قیمت به تومان">
+          <input type="text" name="product-price" id="" placeholder="قیمت به تومان">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
           </svg> 
@@ -93,12 +94,14 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
             </svg>            
           </label>
-          <input type="file" name="" id="upload-product-cover" hidden>
+          <input type="file" name="product-cover" id="upload-product-cover" hidden>
         </div>
 
-        <button>اضافه کردن محصول</button>
+        <button name = "submit-product-form" >اضافه کردن محصول</button>
         <button id = "close_button" type="button">بستن پنل</button>
       </div>
+    </form>
+      
     </div>
 </body>
 </html>
