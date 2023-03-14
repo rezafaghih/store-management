@@ -27,9 +27,12 @@ window.addEventListener("load", function(){
 
   for (let index = 0; index < add.length; index++) {
     add[index].addEventListener("click", function(){
+      
       value = parseInt(count_of_product_span[index].innerHTML);
       count_of_product_span[index].innerHTML = value+1;
       value = null;
+      id =  findBoxID(index);
+      phpAjax(id, "add");
     })
   }
 
@@ -38,6 +41,29 @@ window.addEventListener("load", function(){
       value = parseInt(count_of_product_span[index].innerHTML);
       count_of_product_span[index].innerHTML = value-1;
       value = null;
+      id =  findBoxID(index);
+      phpAjax(id ,"less");
     })
   }
 })
+
+function findBoxID(i){
+  if (i != undefined){
+    const box = document.querySelectorAll(".box");
+    id = box[i].getAttribute('product-id');
+
+    return id;
+  }
+}
+
+
+function phpAjax(id, type){
+  var xml = new XMLHttpRequest();
+  xml.onreadystatechange = function(){
+    if (this.status == 200 && this.readyState == 4){
+     return this.responseText;
+    }
+  }
+  xml.open("GET", "src/php/change-count.php?id="+id+"&type="+type, true);
+  xml.send();
+}

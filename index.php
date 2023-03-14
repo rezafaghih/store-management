@@ -1,3 +1,45 @@
+<?php 
+  include_once "src/php/db.php";
+
+  function displayProduct(){
+    global $mysql;
+
+    if ($mysql){
+      $query = mysqli_query($mysql, "SELECT * FROM `product`");
+
+      if (mysqli_num_rows($query) > 0){
+        while($row = mysqli_fetch_assoc($query)){
+          echo '
+          <div class="box flex-col" product-id = "'.$row['id'].'">
+            <img src="product/'.$row['image-address'].'" alt="no alt">
+            <div class="top-text flex-row center" style="justify-content: end;">
+              <span class = "text-sm text-main-color">'.$row['name'].'</span>
+            </div>
+            <div class="two-text-box flex-row" style="flex-direction: row-reverse;">
+              <span class = "text-to-sm text-main-color">قیمت محصول</span>
+              <span class = "text-to-sm">'.number_format($row['price']).' تومان</span>
+            </div>
+            <div class="two-text-box flex-row" style="flex-direction: row-reverse;">
+              <span class = "text-to-sm text-main-color">تعداد در انبار</span>
+              <span id = "count-of-product" class = "text-to-sm">'.number_format($row['count']).'</span>
+            </div>
+            <div class="two-text-box flex-row" style="flex-direction: row-reverse; margin-top: 10px;" >
+              <svg id = "more-count" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              <svg id = "less-count" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+              </svg>
+              
+            </div>
+          </div>
+          ';
+        }
+      }
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,29 +67,9 @@
       </div>
 
        <div class="real-box-container flex-row flex-wrap center">
-          <div class="box flex-col">
-            <img src="https://30a.com/wp-content/uploads/2020/12/1076px-Clown_fish_in_the_Andaman_Coral_Reef.jpg" alt="no alt">
-            <div class="top-text flex-row center" style="justify-content: end;">
-              <span class = "text-sm text-main-color">دلقک ماهی آب شور</span>
-            </div>
-            <div class="two-text-box flex-row" style="flex-direction: row-reverse;">
-              <span class = "text-to-sm text-main-color">مقدار فروش ماه</span>
-              <span class = "text-to-sm">250،000 تومان</span>
-            </div>
-            <div class="two-text-box flex-row" style="flex-direction: row-reverse;">
-              <span class = "text-to-sm text-main-color">تعداد در انبار</span>
-              <span id = "count-of-product" class = "text-to-sm">250</span>
-            </div>
-            <div class="two-text-box flex-row" style="flex-direction: row-reverse; margin-top: 10px;">
-              <svg id = "more-count" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-              <svg id = "less-count" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
-              </svg>
-              
-            </div>
-          </div>
+          <?php 
+            displayProduct();
+          ?>
     </div>
 
 
@@ -96,7 +118,6 @@
           </label>
           <input type="file" name="product-cover" id="upload-product-cover" hidden>
         </div>
-
         <button name = "submit-product-form" >اضافه کردن محصول</button>
         <button id = "close_button" type="button">بستن پنل</button>
       </div>
@@ -106,4 +127,4 @@
 </body>
 </html>
 
-<script src="src/javascript/global.js"></script>
+<script src="src/javascript/global.js?v=<?php echo time();?>"></script>
