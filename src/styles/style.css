@@ -10,17 +10,18 @@
 .real-box-container>.box{
   position: relative;
   width: 300px;
-  height: 400px;
+  min-height: 400px;
   border-radius: 8px;
   background-color: var(--container);
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   gap: 20px;
+  padding-bottom: 20px;
 }
 
 .real-box-container>.box img{
   width: 100%;
-  max-height: 50%;
+  height: 200px;
   object-fit: cover;
 }
 .real-box-container>.box .top-text span{
@@ -40,6 +41,19 @@
   gap: 30px;
 }
 
+#delete-product{
+  width: 30px;
+  height: 30px;
+  color:rgb(107, 1, 1);
+  background-color: rgb(226, 97, 97);
+}
+
+#edit-product{
+  width: 30px;
+  height: 30px;
+  color:rgb(71, 21, 1);
+  background-color: burlywood;
+}
 #upload-new-product{
   position  : fixed;
   padding: 10px 30px;

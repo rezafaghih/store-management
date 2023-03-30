@@ -51,11 +51,37 @@ function findBoxID(i){
   if (i != undefined){
     const box = document.querySelectorAll(".box");
     id = box[i].getAttribute('product-id');
-
     return id;
   }
 }
 
+const box_list = [];
+
+function deleteProduct(productID){
+  if (box_list[productID] != undefined){
+    console.log(box_list[productID].getAttribute('product-id'))
+    box_list[productID].remove()
+    
+  }else{
+    console.log(productID)
+  }
+}
+
+
+
+var deleteButtons = document.querySelectorAll("#delete-product");
+
+if (deleteButtons != undefined){
+  for (let index = 0; index < deleteButtons.length; index++) {
+    box_list[index] = document.querySelectorAll(".box")[index];
+  }
+  
+  for (let i = 0; i< deleteButtons.length; i++){
+    deleteButtons[i].addEventListener("click", function(){
+      deleteProduct(i);
+    })
+  }
+}
 
 function phpAjax(id, type){
   var xml = new XMLHttpRequest();
